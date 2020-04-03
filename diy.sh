@@ -6,11 +6,11 @@
 # Blog: https://p3terx.com
 #=================================================
 # Modify default IP
-sed -i 's/192.168.1.1/10.10.10.10/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.100.3/g' package/base-files/files/bin/config_generate
 sed -i '1c net.netfilter.nf_conntrack_max=160000' package/base-files/files/etc/sysctl.conf
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 rm -rf package/lean/luci-theme-argon
-# Ìí¼ÓµÚÈı·½Èí¼ş°ü
+# æ·»åŠ ç¬¬ä¸‰æ–¹è½¯ä»¶åŒ…
 git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone https://github.com/destan19/OpenAppFilter package/OpenAppFilter
@@ -30,7 +30,7 @@ git clone https://github.com/Leo-Jo-My/luci-theme-opentomato package/luci-theme-
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat package/luci-theme-opentomcat
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-# É¾³ıËùÓĞ¿Õ¸ñ ÃÜÂë Ìí¼ÓÈ¨ÏŞ+1  ·ÖÇøÊ£Óà¿Õ¼ä
+# åˆ é™¤æ‰€æœ‰ç©ºæ ¼ å¯†ç  æ·»åŠ æƒé™+1  åˆ†åŒºå‰©ä½™ç©ºé—´
 # sed -i '/^$/d' /package/lean/default-settings/files/zzz-default-settings
 # sed -i '/shadow/d' /package/lean/default-settings/files/zzz-default-settings
 sed -i '$i chmod +x /etc/config/speedtest.py' package/lean/default-settings/files/zzz-default-settings
